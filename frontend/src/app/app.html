@@ -1,0 +1,59 @@
+<main class="container">
+  <h1>URL Shortener</h1>
+  <p class="subtitle">Angular frontend + Go backend starter</p>
+
+  <section class="card">
+    <h2>Create Short URL</h2>
+    <div class="row">
+      <input
+        type="url"
+        placeholder="https://example.com/very/long/link"
+        [(ngModel)]="originalUrl"
+      />
+      <button (click)="shortenUrl()" [disabled]="loading">Shorten</button>
+    </div>
+
+    <p class="message error" *ngIf="error">{{ error }}</p>
+    <p class="message success" *ngIf="success">{{ success }}</p>
+
+    <div class="result" *ngIf="result">
+      <p><strong>Code:</strong> {{ result.code }}</p>
+      <p><strong>Short URL:</strong> <a [href]="result.short_url" target="_blank">{{ result.short_url }}</a></p>
+      <button class="secondary" (click)="copyShortUrl()">Copy</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Stats</h2>
+    <div class="row">
+      <input type="text" placeholder="Enter short code" [(ngModel)]="statsCode" />
+      <button (click)="fetchStats()" [disabled]="loading">Get Stats</button>
+    </div>
+
+    <div class="result" *ngIf="stats">
+      <p><strong>Original URL:</strong> {{ stats.original_url }}</p>
+      <p><strong>Clicks:</strong> {{ stats.click_count }}</p>
+      <p><strong>Created:</strong> {{ stats.created_at | date : 'medium' }}</p>
+    </div>
+  </section>
+
+  <section class="card" *ngIf="recentUrls.length">
+    <h2>Recent Shortened URLs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Short URL</th>
+          <th>Original URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of recentUrls">
+          <td>{{ item.code }}</td>
+          <td><a [href]="item.short_url" target="_blank">{{ item.short_url }}</a></td>
+          <td>{{ item.original_url }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

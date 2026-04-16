@@ -1,0 +1,104 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f9fafb 0%, #e5eef9 100%);
+	color: #1f2937;
+}
+
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 2rem 1rem 3rem;
+}
+
+h1 {
+	margin: 0;
+	font-size: 2rem;
+}
+
+.subtitle {
+	margin: 0.5rem 0 1.5rem;
+	color: #4b5563;
+}
+
+.card {
+	background: #ffffff;
+	border: 1px solid #d1d5db;
+	border-radius: 12px;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.row {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 0.75rem;
+}
+
+input {
+	width: 100%;
+	border: 1px solid #cbd5e1;
+	border-radius: 8px;
+	padding: 0.65rem 0.75rem;
+	font-size: 1rem;
+}
+
+button {
+	border: none;
+	border-radius: 8px;
+	padding: 0.65rem 1rem;
+	font-size: 0.95rem;
+	background: #0f766e;
+	color: #fff;
+	cursor: pointer;
+}
+
+button:disabled {
+	background: #9ca3af;
+	cursor: not-allowed;
+}
+
+.secondary {
+	margin-top: 0.5rem;
+	background: #334155;
+}
+
+.message {
+	margin-top: 0.75rem;
+	font-weight: 600;
+}
+
+.error {
+	color: #b91c1c;
+}
+
+.success {
+	color: #166534;
+}
+
+.result {
+	margin-top: 0.75rem;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th,
+td {
+	text-align: left;
+	padding: 0.5rem;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+@media (max-width: 640px) {
+	.row {
+		grid-template-columns: 1fr;
+	}
+
+	button {
+		width: 100%;
+	}
+}
