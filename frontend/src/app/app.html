@@ -1,6 +1,6 @@
 <main class="container">
   <h1>URL Shortener</h1>
-  <p class="subtitle">Angular frontend + Go backend starter</p>
+  <p class="subtitle">Angular frontend + Go backend practicing</p>
 
   <section class="card">
     <h2>Create Short URL</h2>
@@ -18,7 +18,12 @@
 
     <div class="result" *ngIf="result">
       <p><strong>Code:</strong> {{ result.code }}</p>
-      <p><strong>Short URL:</strong> <a [href]="result.short_url" target="_blank">{{ result.short_url }}</a></p>
+      <p>
+        <strong>Short URL:</strong>
+        <span class="inline-scroll">
+          <a [href]="result.short_url" target="_blank">{{ result.short_url }}</a>
+        </span>
+      </p>
       <button class="secondary" (click)="copyShortUrl()">Copy</button>
     </div>
   </section>
@@ -31,7 +36,10 @@
     </div>
 
     <div class="result" *ngIf="stats">
-      <p><strong>Original URL:</strong> {{ stats.original_url }}</p>
+      <p>
+        <strong>Original URL:</strong>
+        <span class="inline-scroll">{{ stats.original_url }}</span>
+      </p>
       <p><strong>Clicks:</strong> {{ stats.click_count }}</p>
       <p><strong>Created:</strong> {{ stats.created_at | date : 'medium' }}</p>
     </div>
@@ -39,21 +47,27 @@
 
   <section class="card" *ngIf="recentUrls.length">
     <h2>Recent Shortened URLs</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Code</th>
-          <th>Short URL</th>
-          <th>Original URL</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of recentUrls">
-          <td>{{ item.code }}</td>
-          <td><a [href]="item.short_url" target="_blank">{{ item.short_url }}</a></td>
-          <td>{{ item.original_url }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Short URL</th>
+            <th>Original URL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of recentUrls">
+            <td>{{ item.code }}</td>
+            <td>
+              <span class="inline-scroll">
+                <a [href]="item.short_url" target="_blank">{{ item.short_url }}</a>
+              </span>
+            </td>
+            <td><span class="inline-scroll">{{ item.original_url }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
 </main>

@@ -81,8 +81,22 @@ button:disabled {
 	margin-top: 0.75rem;
 }
 
+.inline-scroll {
+	display: inline-block;
+	max-width: 100%;
+	overflow-x: auto;
+	white-space: nowrap;
+	vertical-align: bottom;
+	padding-bottom: 0.1rem;
+}
+
+.table-scroll {
+	overflow-x: auto;
+}
+
 table {
 	width: 100%;
+	min-width: 700px;
 	border-collapse: collapse;
 }
 
