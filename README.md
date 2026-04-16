@@ -4,6 +4,10 @@ Base project scaffold for a URL shortener using:
 - Frontend: Angular
 - Backend: Go (Gin + GORM + PostgreSQL)
 
+# Screenshots
+<img width="2880" height="1566" alt="image" src="https://github.com/user-attachments/assets/0bb3c549-fab2-4b73-aff0-3c47a722f33f" />
+
+
 ## Project Structure
 
 - `frontend/` Angular app
